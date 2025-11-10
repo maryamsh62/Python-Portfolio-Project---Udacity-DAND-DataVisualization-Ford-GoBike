@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>exploration_template</title>
+<title>exploration</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13017,45 +13017,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13135,6 +13096,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import all packages and set plots to be embedded inline</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -13157,6 +13119,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import Ford GoBike csv file into jupyter notebook</span>
+
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;2017-fordgobike-tripdata.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13239,15 +13202,13 @@ div#notebook {
 </tbody>
 </table>
 <ul>
-<li>The time variables in this dataset are all string. They need to be converted to datetime format for the analysis.</li>
-<li>The time variables can be broken down into time of day, day of the week, or month of the year.    </li>
-<li>The dataset provides membership birth year, so ages can be derived by using the year of the dataset, 2017, to divide by the membership birth year.  </li>
+<li>The time variables in this dataset are stored as strings, so they need to be converted to a proper datetime format before analysis</li>
+<li>The time variables can be broken down into time of day, day of the week, or month of the year    </li>
+<li>The dataset provides membership birth year, so ages can be derived by using the year of the dataset, 2017, to divide by the membership birth year</li>
 </ul>
-<h3 id="The-main-feature(s)-of-interest-in-the-dataset">The main feature(s) of interest in the dataset<a class="anchor-link" href="#The-main-feature(s)-of-interest-in-the-dataset">&#182;</a></h3><p>I am most interested in figuring out when and where are most trips taken because this dataset includes start time/location and end time/location. I focus on the starting points first.</p>
-<ul>
-<li>Also, I am interested in what are the characteristics (age, sex, and user_type) of the riders and the duration of the trips in these time points and locations.</li>
-</ul>
-<h3 id="The-features-in-the-dataset-expect-to-support-the-investigation-into-the-feature(s)-of-interest.">The features in the dataset expect to support the investigation into the feature(s) of interest.<a class="anchor-link" href="#The-features-in-the-dataset-expect-to-support-the-investigation-into-the-feature(s)-of-interest.">&#182;</a></h3><p>I expect the Caltrain or Bart stations in San Francisco will have more trips than other locations because those stations are in the center of the city and connect to other major transportations. Morning and afternoon will have more trips than night time due to rush hours. Also, I assume younger riders are more than older riders because of physical abilities. Moreover, based on the <a href="https://www.fordgobike.com/pricing">pricing</a>, subscribers are more likely riding more than customers. And it's hard to expect female riders are more or males, so I leave this topic in the analysis.</p>
+<h3 id="The-main-feature(s)-of-interest-in-the-dataset">The main feature(s) of interest in the dataset<a class="anchor-link" href="#The-main-feature(s)-of-interest-in-the-dataset">&#182;</a></h3><p>I am primarily interested in identifying when and where most trips occur, since the dataset includes both start time/location and end time/location. I will first focus on the starting points to determine which times and locations generate the highest number of rides.</p>
+<p>I am also interested in the riders’ characteristics—such as age, sex, and user type—as well as the trip duration at those times and locations, to see whether certain groups are more likely to ride and whether their trips differ in length.</p>
+<h3 id="The-features-in-the-dataset-are-expected-to-support-the-investigation-into-the-feature(s)-of-interest">The features in the dataset are expected to support the investigation into the feature(s) of interest<a class="anchor-link" href="#The-features-in-the-dataset-are-expected-to-support-the-investigation-into-the-feature(s)-of-interest">&#182;</a></h3><p>I expect that <strong>Caltrain and BART stations in San Francisco</strong> will have higher numbers of trip starts than other locations, since these stations are centrally located and serve as major transit hubs. I also expect <strong>morning and late afternoon</strong> periods to show more trips than nighttime due to typical commute (rush-hour) patterns. In addition, I anticipate that <strong>younger riders</strong> will be more prevalent than older riders, given the physical nature of biking. Based on the <a href="https://www.fordgobike.com/pricing">pricing</a> structure, I also expect <strong>subscribers</strong> to take more trips than casual customers. However, I do not have a strong prior expectation about <strong>gender differences</strong> in riding frequency, so I will leave that to be explored in the analysis.</p>
 
 </div>
 </div>
@@ -13258,6 +13219,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Find out the structure of the dataset</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -13371,8 +13333,9 @@ None
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Convert time variables from string to datetime</span>
-<span class="c1"># a. month of the year</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert time variables from string to datetime</span>
+<span class="c1"># Month of the year</span>
+
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_month_num&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">time</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_month_num&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
@@ -13388,7 +13351,8 @@ None
 <div class="prompt input_prompt">In&nbsp;[242]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test: take a loo at start_month_num and start_month_char</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test: take a look at start_month_num and start_month_char</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_month_num&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
@@ -13436,7 +13400,8 @@ Name: start_month_char, dtype: int64
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> <span class="c1"># b. morning, afternoon, night of a day</span>
+<div class=" highlight hl-ipython3"><pre><span></span> <span class="c1"># Morning, afternoon, night of a day</span>
+    
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">time</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;period_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;morning&#39;</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;period_day&#39;</span><span class="p">][(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_hour&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">12</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_hour&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">17</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;afternoon&#39;</span>
@@ -13480,7 +13445,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[243]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test: start hour and time of day</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test: Start hour and time of day</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_hour&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;period_day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
@@ -13541,7 +13507,8 @@ Name: period_day, dtype: int64
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># c. Day of the week</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Day of the week</span>
+
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_weekday_num&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">time</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">dayofweek</span><span class="p">)</span>
 <span class="n">dmap</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Tue&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Wed&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Thu&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Fri&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Sat&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Sun&#39;</span><span class="p">}</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_weekday_char&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_weekday_num&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">dmap</span><span class="p">)</span>
@@ -13558,6 +13525,7 @@ Name: period_day, dtype: int64
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test: take a look at start_weekday_num and start_weekday_char</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_weekday_num&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_weekday_char&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
@@ -13605,7 +13573,8 @@ Name: start_weekday_char, dtype: int64
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert time period, month, and weekday into ordered categorical types</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert time period, month, and weekday into ordered categorical types</span>
+
 <span class="n">ordinal_var_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jun&#39;</span><span class="p">,</span><span class="s1">&#39;Jul&#39;</span><span class="p">,</span><span class="s1">&#39;Aug&#39;</span><span class="p">,</span><span class="s1">&#39;Sep&#39;</span><span class="p">,</span><span class="s1">&#39;Oct&#39;</span><span class="p">,</span><span class="s1">&#39;Nov&#39;</span><span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">],</span>
                     <span class="s1">&#39;period_day&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;morning&#39;</span><span class="p">,</span> <span class="s1">&#39;afternoon&#39;</span><span class="p">,</span> <span class="s1">&#39;night&#39;</span><span class="p">],</span>
                     <span class="s1">&#39;start_weekday_char&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tue&#39;</span><span class="p">,</span> <span class="s1">&#39;Wed&#39;</span><span class="p">,</span> <span class="s1">&#39;Thu&#39;</span><span class="p">,</span> <span class="s1">&#39;Fri&#39;</span><span class="p">,</span> <span class="s1">&#39;Sat&#39;</span><span class="p">,</span> <span class="s1">&#39;Sun&#39;</span><span class="p">]}</span>
@@ -13626,7 +13595,8 @@ Name: start_weekday_char, dtype: int64
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. Create ages</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create age</span>
+
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_birth_year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2017</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 
@@ -13641,6 +13611,7 @@ Name: start_weekday_char, dtype: int64
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test: age</span>
+
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
@@ -13681,7 +13652,7 @@ Name: age, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='uni'></a></p>
-<h2 id="II.-Univariate-Exploration">II. Univariate Exploration<a class="anchor-link" href="#II.-Univariate-Exploration">&#182;</a></h2><p>I start by looking into the start time and start location of this dataset.</p>
+<h2 id="II.-Univariate-Exploration">II. Univariate Exploration<a class="anchor-link" href="#II.-Univariate-Exploration">&#182;</a></h2><p>I begin the analysis by examining the start time and start location variables in the dataset.</p>
 
 </div>
 </div>
@@ -13691,7 +13662,8 @@ Name: age, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[250]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Time by months </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Time by months</span>
+
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Start Time by Month&#39;</span><span class="p">)</span>
@@ -13729,7 +13701,7 @@ Name: age, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this time by month figure, why June's trips are way less than other months? I look into each date in this month to figure it out.</p>
+<p><strong>The month-over-month chart shows an unusually low number of trips in June. I explore June at the daily level to diagnose the drop.In this time by month figure, why June's trips are way less than other months? I look into each date in this month to figure it out.</strong></p>
 
 </div>
 </div>
@@ -13791,7 +13763,7 @@ Name: day, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After checking <a href="https://en.wikipedia.org/wiki/Ford_GoBike">online information</a>, Ford GoBike was launched since June 28, 2017. There is no data before June 28, 2017, so I decide to remove June data from the analysis.</p>
+<p><strong>After checking <a href="https://en.wikipedia.org/wiki/Ford_GoBike">online information</a>, Ford GoBike was launched on June 28, 2017. There is no data before June 28, 2017, so I decided to remove the June data from the analysis.</strong></p>
 
 </div>
 </div>
@@ -13801,7 +13773,8 @@ Name: day, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># remove June&#39;s data and save the new dataset as df2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove June&#39;s data and save the new dataset as df2</span>
+
 <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;start_month_num != 6&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13816,6 +13789,7 @@ Name: day, dtype: int64</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test and see if June is not in the dataset anymore</span>
+
 <span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;start_month_num == 6&#39;</span><span class="p">))</span>
 </pre></div>
 
@@ -13849,7 +13823,8 @@ Name: day, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. Location: there are 272 start stations. </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Location: there are 272 start stations</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()))</span>
 <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
@@ -13954,7 +13929,7 @@ Name: start_station_name, Length: 272, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are 272 stations in this dataset. I zoom in to look into Top 8 stations with the most trips that are located in San Francisco.</p>
+<p><strong>There are 272 stations in the dataset. I zoom in on the top 8 stations with the highest number of trips that are located in San Francisco.</strong></p>
 
 </div>
 </div>
@@ -13964,7 +13939,8 @@ Name: start_station_name, Length: 272, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do they have high traffics as end stations? Looks like yes!</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do they have high traffic as end stations? Looks like yes!</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;end_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()))</span>
 <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;end_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
@@ -14071,7 +14047,8 @@ Name: end_station_name, Length: 272, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[248]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Subset the dataset by keeping only top 8 locations with high traffics, df_top8. </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a subset of the dataset, df_top8, that includes only the top 8 high-traffic locations</span>
+
 <span class="n">locs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;San Francisco Ferry Building (Harry Bridges Plaza)&#39;</span><span class="p">,</span><span class="s1">&#39;The Embarcadero at Sansome St&#39;</span><span class="p">,</span><span class="s1">&#39;San Francisco Caltrain (Townsend St at 4th St)&#39;</span><span class="p">,</span><span class="s1">&#39;San Francisco Caltrain Station 2  (Townsend St at 4th St)&#39;</span><span class="p">,</span><span class="s1">&#39;Market St at 10th St&#39;</span><span class="p">,</span><span class="s1">&#39;Montgomery St BART Station (Market St at 2nd St)&#39;</span><span class="p">,</span><span class="s1">&#39;Berry St at 4th St&#39;</span><span class="p">,</span><span class="s1">&#39;Powell St BART Station (Market St at 4th St)&#39;</span><span class="p">]</span>
 <span class="n">df_top8</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">locs</span><span class="p">)]</span>
 </pre></div>
@@ -14086,7 +14063,8 @@ Name: end_station_name, Length: 272, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[249]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test and see if only keep top 8 station</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test </span>
+
 <span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
@@ -14128,7 +14106,8 @@ Name: start_station_name, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># After subsetting top 8 station with the most trip, create a countplot to see the distribution and order from top 1 to top 8</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># After subsetting the top 8 stations with the most trips, create a countplot to see the distribution and order from top 1 to top 8</span>
+
 <span class="n">st_stat_counts</span> <span class="o">=</span> <span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="n">st_stat_order</span> <span class="o">=</span> <span class="n">st_stat_counts</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
@@ -14180,7 +14159,7 @@ Name: start_station_name, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After checking start and end stations, most stations in San Francisco connect to public transportations such as Caltrain, Bart and Ferry. The Embarcadero at Sansome St is very closed to Ferry building and located in financial distrit. Market St at 10th St and Berry St at 4th St are also closed to Bart station. I will look into the time factors in these 8 locations.</p>
+<p><strong>After reviewing the start and end stations, I found that most stations in San Francisco are connected to major public transportation, such as Caltrain, BART, and the Ferry. Embarcadero at Sansome St is very close to the Ferry Building and is located in the Financial District. Market St at 10th St and Berry St at 4th St are also close to BART stations. Next, I will examine the time-related patterns at these 8 high-traffic locations.</strong></p>
 
 </div>
 </div>
@@ -14190,7 +14169,8 @@ Name: start_station_name, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[292]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.1 Time: month (after subsetting, regenerate the distribution of month again), time of day, weekday</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Time: month (after subsetting, regenerate the distribution of month again), time of day, weekday</span>
+
 <span class="n">mon_cl</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jul&#39;</span><span class="p">,</span><span class="s1">&#39;Aug&#39;</span><span class="p">,</span><span class="s1">&#39;Sep&#39;</span><span class="p">,</span><span class="s1">&#39;Oct&#39;</span><span class="p">,</span><span class="s1">&#39;Nov&#39;</span><span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span>
 <span class="n">mon_cl2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">CategoricalDtype</span><span class="p">(</span><span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="n">mon_cl</span><span class="p">)</span>
 <span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">mon_cl2</span><span class="p">)</span>
@@ -14273,11 +14253,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In these top 8 trips stations, base on the above figures, I have the following findings:</p>
+<p><strong>In these top 8 high-traffic stations, based on the figures above, I found:</strong></p>
 <ol>
-<li>Besides July, the number of trips gradually decreases when winter is coming. I assume that July's trips are influenced by the launch of the program.   </li>
-<li>During the day, there are more trips in the morning and afternoon than the night. It probably because of rush hours. Also, the number of trips in the afternoon is less than the morning. I assumed when riders come back home, they might not be back in the afternoon. Probably, they come back during the night so some trips fall into nighttime.  </li>
-<li>It makes sense that there are more trips during the weekdays and less trips during the weekends because of working schedule.</li>
+<li><strong>Seasonality</strong>: Except for July, the number of trips gradually decreases as winter approaches. I assume the spike in July may be related to the launch or expansion of the program.   </li>
+<li><strong>Time of day</strong>: Trips are more frequent in the morning and afternoon than at night, likely due to commute (rush-hour) patterns. Afternoon trips are slightly lower than morning trips, possibly because some riders return later in the evening, so those rides are counted as nighttime trips.  </li>
+<li><strong>Day of week</strong>: There are more trips on weekdays and fewer on weekends, which aligns with typical work schedules.</li>
 </ol>
 
 </div>
@@ -14288,7 +14268,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[260]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. Rider&#39;s characteristics: the distributions of user type and gender</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Rider&#39;s characteristics: the distributions of user type and gender</span>
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
 <span class="n">default_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_top8</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;user_type&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">default_color</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -14332,7 +14313,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Take a look at the &#39;Other&#39; group in gender. </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Take a look at the &#39;Other&#39; group in gender</span>
+
 <span class="n">df_top8</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;member_gender == &quot;Other&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -15872,11 +15854,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In these top 8 trips stations, base on the above figures, I have the following findings:</p>
+<p><strong>In these top 8 high-traffic stations, based on the figures above, I found:</strong></p>
 <ul>
-<li>It makes sense that there are more subscribers than customers. Based on the <a href="https://www.fordgobike.com/pricing">pricing page</a>, monthly membership only takes 15 dollars. For regular customers, one trip takes 2 dollars and one day takes 10 dollars. If riders are commuters or long-term users, it does not make sense for them to choose one time or two time purchases instead of being the members.  </li>
-<li>For the gender groups, the number of trips in male riders is 3 times more than the number of trips in females. Why is that? I will investigate this more in the following.</li>
-<li>There are few riders with 'Other' gender. It's not clear that the riders are not willing to reveal or there are data entry issues.</li>
+<li><strong>Subscribers vs. customers</strong>: There are more subscribers than customers. According to the <a href="https://www.fordgobike.com/pricing">pricing page</a>, a monthly membership costs only 15 dollar, while a single ride is 2 dollar and a day pass is 10 dollar. For commuters or frequent riders, it is more economical to become a member than to purchase one-off rides.</li>
+<li><strong>Gender differences</strong>: Male riders take about three times as many trips as female riders. This is a noticeable gap, and I will look into possible reasons for this in the next steps.</li>
+<li><strong>‘Other’ gender category</strong>: There are very few trips in the “Other” gender category. It is unclear whether this is due to riders choosing not to disclose their gender or due to data entry/collection limitations.</li>
 </ul>
 
 </div>
@@ -15887,7 +15869,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[261]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4. Age: based on the distribution, we can tell it&#39;s right skewed and has some outliers between 100 and 120.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Age: The age distribution is right-skewed and includes a few outliers in the 100–120 range.</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_top8</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
@@ -15969,7 +15952,8 @@ Name: age, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[262]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># there&#39;s a long tail in the distribution, so let&#39;s put it on a log scale instead</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># There&#39;s a long tail in the distribution, so let&#39;s put it on a log scale instead</span>
+
 <span class="n">log_binsize</span> <span class="o">=</span> <span class="mf">0.025</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">+</span><span class="n">log_binsize</span><span class="p">,</span> <span class="n">log_binsize</span><span class="p">)</span>
 
@@ -16012,7 +15996,7 @@ Name: age, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the figure, most of riders are around 30 years old. Even though there are some riders ages older than 90 years old looks like high outliers, before checking their physical abilities data, I will keep them in the dataset.</p>
+<p><strong>From the figure, most riders are around 30 years old. Although there are some riders older than 90 years—who appear to be high outliers—I will keep them in the dataset for now until I can check for potential data quality issues or additional information about their physical abilities.</strong></p>
 
 </div>
 </div>
@@ -16022,7 +16006,8 @@ Name: age, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># There are some bikers with age older than 100 years old. Let&#39;s take a look at them.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># There are some bikers over 100 years old. Let&#39;s take a look at them</span>
+
 <span class="n">df_top8</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;age &gt; 100&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -17564,7 +17549,8 @@ Name: age, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[263]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 5. The distribution of duration of trips</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The distribution of the duration of trips</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="c1">#bins = np.arange(0, df_top8_le100[&#39;duration_sec&#39;].max()+50, 100)</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
@@ -17606,7 +17592,8 @@ Name: age, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[264]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># there&#39;s a long tail in the distribution, so let&#39;s put it on a log scale instead</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># There&#39;s a long tail in the distribution, so let&#39;s put it on a log scale instead</span>
+
 <span class="n">log_binsize</span> <span class="o">=</span> <span class="mf">0.025</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;duration_sec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">+</span><span class="n">log_binsize</span><span class="p">,</span> <span class="n">log_binsize</span><span class="p">)</span>
 
@@ -17649,7 +17636,7 @@ Name: age, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the figure, most durations of trips fall into 650 seconds (10.8 minutes). It looks normally distributed.</p>
+<p><strong>From the figure, most trip durations fall within 650 seconds (10.8 minutes). It looks normally distributed.</strong></p>
 
 </div>
 </div>
@@ -17659,7 +17646,8 @@ Name: age, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Only use the subsetted dataset to perform the rest of analysis.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Only use the subsetted dataset to perform the rest of the analysis</span>
+
 <span class="n">df_top8</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;2017-fordgobike-tripdata-clean.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
@@ -17671,12 +17659,16 @@ Name: age, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Transformations">Transformations<a class="anchor-link" href="#Transformations">&#182;</a></h3><p>The variables, age and duration_sec, look like right skewed, so I look into these two variables using a log transform. Under the transformations, age's data has one big peak between 30 and 40 years old and some small peak. Duration's data looks like unimodel with one peak between 550 and 650 seconds.</p>
+<h3 id="Transformations">Transformations<a class="anchor-link" href="#Transformations">&#182;</a></h3><p>The variables age and duration_sec are right-skewed, so I applied a log transformation to both. After the transformation:</p>
+<ul>
+<li>Age shows a prominent peak between 30 and 40 years old, with a few smaller peaks.</li>
+<li>Duration becomes roughly unimodal, with a main peak around 550–650 seconds.</li>
+</ul>
 <h3 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="#Data-Cleaning">&#182;</a></h3><ol>
-<li>June's data is way less than the other months. After I look into it and find that the program launched on June 28th, so there are only three days data in this month. Therefore, I remove June from the analysis.</li>
-<li>I am most interested in the most traffic locations. After looking into trips count in each station, I pick top 8 stations over 10,000 trips.  </li>
+<li><strong>June data volume</strong>: June has far fewer records than other months. After checking the dates, I found that the program launched on June 28, so June only contains three days of data. Therefore, I excluded June from the analysis.</li>
+<li><strong>Focus on high-traffic stations</strong>: Since the analysis focuses on where most trips occur, I selected the top 8 stations with more than 10,000 trips each.</li>
 </ol>
-<p>San Francisco Ferry Building (Harry Bridges Plaza)<br>
+<blockquote><p>San Francisco Ferry Building (Harry Bridges Plaza)<br>
 The Embarcadero at Sansome St<br>
 San Francisco Caltrain (Townsend St at 4th St)<br>
 San Francisco Caltrain Station 2  (Townsend St at 4th St)<br>
@@ -17684,10 +17676,11 @@ Market St at 10th St<br>
 Montgomery St BART Station (Market St at 2nd St)<br>
 Berry St at 4th St<br>
 Powell St BART Station (Market St at 4th St)</p>
+</blockquote>
 <ol>
-<li><p>For the age distribution, there are few riders older than 90. They look like outliers. However, before I acquire their physical abilities' data, I think it is fair enough to keep them in the dataset.</p>
+<li><p>For the <strong>age distribution</strong>, there are a few riders older than 90. They look like outliers. However, before I acquire their physical abilities' data, I think it is fair enough to keep them in the dataset.</p>
 </li>
-<li><p>For the gender groups, there is a 'Other' category. Before I confirm the information, I will keep them in the dataset.</p>
+<li><p>For the <strong>gender groups</strong>, there is a 'Other' category. Before I confirm the information, I will keep it in the dataset.</p>
 </li>
 </ol>
 
@@ -17708,6 +17701,7 @@ Powell St BART Station (Market St at 4th St)</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare lists of numeric variables and categorical variables</span>
+
 <span class="n">numeric_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;duration_sec&#39;</span><span class="p">]</span>
 <span class="n">times_chr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;period_day&#39;</span><span class="p">,</span><span class="s1">&#39;start_weekday_char&#39;</span><span class="p">,</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">]</span>
 <span class="n">users_chr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">,</span><span class="s1">&#39;member_gender&#39;</span><span class="p">]</span>
@@ -17723,7 +17717,8 @@ Powell St BART Station (Market St at 4th St)</p>
 <div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Order top 8 stations from the number one (most trips) to the number eight (least trips)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Order the top 8 stations from the number one (most trips) to the number eight (least trips)</span>
+
 <span class="n">loc_cl</span> <span class="o">=</span> <span class="n">locs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;San Francisco Ferry Building (Harry Bridges Plaza)&#39;</span><span class="p">,</span><span class="s1">&#39;The Embarcadero at Sansome St&#39;</span><span class="p">,</span><span class="s1">&#39;San Francisco Caltrain (Townsend St at 4th St)&#39;</span><span class="p">,</span><span class="s1">&#39;San Francisco Caltrain Station 2  (Townsend St at 4th St)&#39;</span><span class="p">,</span><span class="s1">&#39;Market St at 10th St&#39;</span><span class="p">,</span><span class="s1">&#39;Montgomery St BART Station (Market St at 2nd St)&#39;</span><span class="p">,</span><span class="s1">&#39;Berry St at 4th St&#39;</span><span class="p">,</span><span class="s1">&#39;Powell St BART Station (Market St at 4th St)&#39;</span><span class="p">]</span>
 <span class="n">loc_cl2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">CategoricalDtype</span><span class="p">(</span><span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="n">loc_cl</span><span class="p">)</span>
 <span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">loc_cl2</span><span class="p">)</span>
@@ -17762,7 +17757,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[265]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Numeric variables: correlation between age and duration second</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Numeric variables: correlation between age and duration in seconds</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_top8</span><span class="p">[</span><span class="n">numeric_vars</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;.3f&#39;</span><span class="p">,</span>
            <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;vlag_r&#39;</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
@@ -17801,7 +17797,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[266]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot matrix for age and duration: sample 500 so that plots are clearer. </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a plot matrix for age and duration, using a sample of 500 records to make the plots clearer</span>
+
 <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_top8</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">500</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">df_top8_samp</span> <span class="o">=</span> <span class="n">df_top8</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">samples</span><span class="p">,:]</span>
 
@@ -17841,7 +17838,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Based on the correlation, age is slightly negative correlated with duration against of my assumption (age and duration is negatively correlated). However, it actually make sense that in this dataset, the major population of age is between 30 and 40 years old. We have less samples in the older population.</p>
+<p><strong>Based on the correlation analysis, age is slightly negatively correlated with duration, which is the opposite of my initial assumption. However, this makes sense because most riders in this dataset are between 30 and 40 years old, and there are relatively few observations in the older age groups, which limits our ability to detect a stronger relationship.</strong></p>
 
 </div>
 </div>
@@ -17851,7 +17848,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[270]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. Categorical variables by plotting countplot: top 8 stations by times (time of day, weekdays, months)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Categorical variables by plotting countplot: top 8 stations by times (time of day, weekdays, months)</span>
+
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Trips Count in Each Time Group&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -17893,11 +17891,14 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After breaking down into each station,</p>
+<p><strong>After breaking the data down by station, I found:</strong></p>
 <ol>
-<li>Time of day: morning is not necessary the period of time with most trips. Half of stations have the most trips during the morning and another half of stations has the most trips during the afternoon. It needs to be investigated more.  </li>
-<li>Day of week: weekdays (Monday, Tuesday, Wednesday, Thursday and Friday) have the most trips than weekends. Compared to other weekdays, Friday has less trips. I think that some people work from home on Friday like me ;p. Some stations' weekends have more trips than other stations (even their trips are still less than weekdays') might because these stations are close to tourist attractions. But all of points need to be taken a deeper look.  </li>
-<li>Besides July (the program just launched), from August to October, the number of trips gradually increases and it decreases in the winder (November and December). Biking might be correlated with the weather. It needs more weather forecast data to support the assumption.</li>
+<li><p><strong>Time of day</strong>: The morning is not always the busiest period. About half of the stations have the highest number of trips in the morning, while the other half peak in the afternoon. This pattern needs further investigation.</p>
+</li>
+<li><p><strong>Day of week</strong>: As expected, weekdays (Monday–Friday) have more trips than weekends. However, Friday has slightly fewer trips than other weekdays—possibly because some riders work from home. Some stations show relatively higher weekend usage (though still lower than weekdays), likely because they are closer to tourist or recreational areas. This also deserves a deeper look.</p>
+</li>
+<li><p><strong>By month/season</strong>: Aside from July (when the program launched), trips increase from August to October and then decline in November and December. This suggests biking activity may be influenced by weather/seasonality, but confirming this would require adding weather data.</p>
+</li>
 </ol>
 
 </div>
@@ -17908,7 +17909,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[271]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. Categorical variables by plotting countplot: top 8 stations by users&#39; attributes (user_type, member&#39;s gender)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Categorical variables by plotting countplot: top 8 stations by users&#39; attributes (user_type, member&#39;s gender)</span>
+
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Trips Count in Each Rider</span><span class="se">\&#39;</span><span class="s1">s Characteristics&#39;</span> <span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -17950,10 +17952,12 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After breaking down into top 8 station by users' attributes:</p>
+<p><strong>After breaking down the top 8 stations by rider attributes, I found:</strong></p>
 <ol>
-<li>Apparently, subscribers are more than customers in each station. However, there are more customers at San Francisco Ferry Building (Harry Bridges Plaza) and The Embarcadero at Sansome St stations than at other stations. Customers might include tourists.</li>
-<li>The trips in male riders are way more than in females. Even though I look into the <a href="https://www.states101.com/gender-ratios/california/san-francisco-county">gender distribution in SF</a>. It cannot explain why males riders are more. It needs to be investigated deeper.</li>
+<li><strong>Subscriber vs. customer</strong>: Subscribers outnumber customers at every station. However, the San Francisco Ferry Building (Harry Bridges Plaza) and The Embarcadero at Sansome St have relatively more customers than the other stations, likely because these locations attract tourists and occasional riders.</li>
+</ol>
+<ol>
+<li><strong>Gender</strong>:Trips made by male riders are significantly higher than those made by females. Even after checking the <a href="https://www.states101.com/gender-ratios/california/san-francisco-county">gender distribution in SF</a>, this alone does not explain the large gap. This pattern needs further investigation (e.g., bike availability, safety perception, trip purpose, or data collection issues). </li>
 </ol>
 
 </div>
@@ -17964,8 +17968,9 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[277]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4. Numeric variables by plotting violin plot to see the distributions: </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Numeric variables by plotting a violin plot to see the distributions: </span>
 <span class="c1"># Top 8 stations by age, Top 8 stations by duration of trips</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
@@ -18008,13 +18013,21 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>It looks like most of the data are concentrated in the lower range of the plots, so I will apply a log transformation to spread the values out.</strong></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[282]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># It looks like the majority of data squeeze in the first half of plots. Let&#39;s see log transform.</span>
-<span class="c1"># For duration of trips: avoid messiness of violin plots, I plot boxplots instead.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For trip duration, to avoid the clutter of violin plots, I use boxplots instead</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
@@ -18066,7 +18079,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[176]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check high outliers in duration of trips</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check high outliers in the duration of trips</span>
+
 <span class="nb">len</span><span class="p">(</span><span class="n">df_top8</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;duration_sec &gt; 1500&#39;</span><span class="p">)[</span><span class="s1">&#39;duration_sec&#39;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df_top8</span><span class="p">[</span><span class="s1">&#39;duration_sec&#39;</span><span class="p">])</span>
 </pre></div>
 
@@ -18098,7 +18112,15 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After log-transformed, most of median age population (between 30 to 40) is consistent in each station. The median of duration (second) falls around 650 second. However, after 1500 second, there are a lot of high outliers around 9.9%.</p>
+<p><strong>After the log transformation:</strong></p>
+<ul>
+<li><p>The median rider age (around 30–40 years old) is consistent across stations.</p>
+</li>
+<li><p>The median trip duration is around 650 seconds.</p>
+</li>
+<li><p>However, trips longer than about 1,500 seconds show many high outliers, making up roughly 9–10% of the data.</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -18106,24 +18128,21 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Observed-relationships-in-bivariate-exploration.">Observed relationships in bivariate exploration.<a class="anchor-link" href="#Observed-relationships-in-bivariate-exploration.">&#182;</a></h3><p>In the top 8 stations, look into the attributes' times and users:</p>
+<h3 id="Observed-Relationships-in-Bivariate-Exploration">Observed Relationships in Bivariate Exploration<a class="anchor-link" href="#Observed-Relationships-in-Bivariate-Exploration">&#182;</a></h3><p>Looking at the top 8 stations and breaking the data down by time and user attributes, I found:</p>
 <ol>
-<li>Time:   </li>
+<li><p><strong>Time</strong></p>
+<p><strong>Time of day</strong>: After separating the data by station, the morning is not always the busiest period. About half of the stations have the most trips in the morning, while the other half peak in the afternoon.</p>
+<p><strong>Weekday vs. weekend</strong>: There are generally more trips on weekdays than weekends. However, for customers (non-subscribers), stations like San Francisco Ferry Building (Harry Bridges Plaza) and The Embarcadero at Sansome St show relatively higher weekend usage—likely because these are tourist-heavy locations. Also, Friday has slightly fewer trips than other weekdays, possibly due to flexible/remote work.</p>
+<p><strong>By month/season</strong>: Aside from July (when the program launched), trips increase leading into fall and then decrease in winter, suggesting that weather/season is an important factor.</p>
+</li>
+<li><p><strong>User</strong></p>
+<p><strong>Age</strong>: Most riders are between 30 and 40 years old, which may indicate a large share of commuters or full-time employees.</p>
+<p><strong>Gender</strong>: Trips made by male riders are much higher than those by female riders. This pattern needs further investigation.</p>
+<p><strong>Subscriber status</strong>: Subscribers take more trips than customers, which is consistent with the pricing model and expected usage patterns.</p>
+</li>
 </ol>
-<ul>
-<li>After separating into eight stations, morning is not necessary the one with most trips. But half of stations has the most trips in the morning and another half of stations has the most trips in the afternoon. </li>
-<li>There are more trips during the weekdays than in weekends. However, in customers, some stations like San Francisco Ferry Building (Harry Bridges Plaza) and The Embarcadero at Sansome St stations have more trips than others in the weekend. Will tourist attractions be another feature causing more trips? Also, compared to other weekdays, Friday has slightly less than trips. I am guessing probably more people work from home that day instead of being in the office like me ;p.  </li>
-<li>Besides July (The program just launched.), before the winder, the number of trips has been gradually increased. After the winder, the number of trips has been gradually decreased. Thus, it implies that weather is one of key features.   </li>
-</ul>
-<ol>
-<li>User:</li>
-</ol>
-<ul>
-<li>Age: most of age population falls between 30 and 40 years old. It might imply there are full time employees and commuters.</li>
-<li>Gender: the number of trips in males is way more than the number in females. It needs to be investigated more.</li>
-<li>Subscribe: the number of trips in subscribers is more than the number in customers because of pricing and population.</li>
-</ul>
-<h3 id="Any-interesting-relationships-between-the-other-features">Any interesting relationships between the other features<a class="anchor-link" href="#Any-interesting-relationships-between-the-other-features">&#182;</a></h3><p>Age and duration of trips are slightly negative-correlated. Majority of age population locates between 30 and 40 years old, so it is probably the reason that other age groups are not observed.</p>
+<p><strong>Other Relationships</strong></p>
+<p>Age vs. duration: Age and trip duration are slightly negatively correlated. Since most riders are clustered in the 30–40 range, we don’t see strong patterns in other age groups, which may limit how much we can infer from this relationship.</p>
 
 </div>
 </div>
@@ -18132,7 +18151,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='mult'></a></p>
-<h2 id="IV.-Multivariate-Exploration">IV. Multivariate Exploration<a class="anchor-link" href="#IV.-Multivariate-Exploration">&#182;</a></h2><p>I am most interested in locations and time with most trips. Now on, I would like to see how the trends differ after adding third or more variables.</p>
+<h2 id="IV.-Multivariate-Exploration">IV. Multivariate Exploration<a class="anchor-link" href="#IV.-Multivariate-Exploration">&#182;</a></h2><p>I am most interested in locations and times with the most trips. Now on, I would like to see how the trends differ after adding three or more variables.</p>
 
 </div>
 </div>
@@ -18142,7 +18161,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[181]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># (1) Top 8 trip stations by times: separate user types and take a look customers and subscribers individually</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Top 8 trip stations by times: separate user types and take a look at customers and subscribers individually</span>
+
 <span class="n">df_cust</span> <span class="o">=</span> <span class="n">df_top8</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;user_type == &quot;Customer&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -18169,7 +18189,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[283]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. 3 categorical variables using countplot: time of day: morning, afternoon, night between customers and subscribers</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 categorical variables using countplot: time of day: morning, afternoon, night, between customers and subscribers</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_cust</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;period_day&#39;</span><span class="p">)</span>
@@ -18218,7 +18239,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[284]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. 3 categorical variables using countplot: Weekday between customers and subscribers</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 categorical variables using countplot: Weekday between customers and subscribers</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_cust</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;start_weekday_char&#39;</span><span class="p">)</span>
@@ -18267,7 +18289,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[285]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. 3 categorical variables using countplot: Month between customers and subscribers</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 categorical variables using countplot: Month between customers and subscribers</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_cust</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">)</span>
@@ -18314,11 +18337,20 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After separating customers from subscribers, there are some very interesting findings in these 3 time categorical variables.</p>
+<p><strong>After separating customers from subscribers, a few interesting patterns appear in the three time-related variables:</strong></p>
 <ol>
-<li>Time of Day: there are more trips in the morning or afternoon no matter in customers or subscribers.  </li>
-<li>Weekdays: it implies customers probably includes tourists because most trips happen in the weekend. On the other hand, subscribers imply commuters because most trips happen in the weekdays.  </li>
-<li>Months: in the customers' trips, there are more trips in ferry building and Embarcadero, especially in August. There are two main tourist attractions. In the subscribers' trips, the stations are close to Bart and Caltrain stations have more trips than tourist attractions. In subscribers, after launching, trips gradually increase and then decrease when the weather becomes colder.  </li>
+<li><p><strong>Time of day</strong>: For both customers and subscribers, most trips occur in the morning or afternoon, which aligns with typical commute or daytime activity patterns.</p>
+</li>
+<li><p><strong>Day of week</strong>: Customers show more trips on weekends, which suggests that many of them may be tourists or occasional riders. Subscribers, on the other hand, take most of their trips on weekdays, which is consistent with commuter behavior.</p>
+</li>
+</ol>
+<ol>
+<li><strong>Month/season</strong>:<ul>
+<li>For customers, there are more trips at tourist-heavy stations such as the Ferry Building and The Embarcadero, especially in August.</li>
+<li>For subscribers, stations located near BART and Caltrain have more trips than the tourist locations.</li>
+<li>Among subscribers, trips increase after the program launch and then decline as the weather gets colder, indicating a seasonal effect.</li>
+</ul>
+</li>
 </ol>
 
 </div>
@@ -18330,6 +18362,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let&#39;s take a look at gender groups in time and locations</span>
+
 <span class="n">df_f</span> <span class="o">=</span> <span class="n">df_top8</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;member_gender == &quot;Female&quot;&#39;</span><span class="p">)</span>
 <span class="n">df_m</span> <span class="o">=</span> <span class="n">df_top8</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;member_gender == &quot;Male&quot;&#39;</span><span class="p">)</span>
 </pre></div>
@@ -18344,8 +18377,9 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[286]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># (2) Top 8 trip stations by times in each gender</span>
-<span class="c1"># 1. 3 categorical variables using countplot: Time of day</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Top 8 trip stations by time in each gender</span>
+<span class="c1"># 3 categorical variables using countplot: Time of day</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_f</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;period_day&#39;</span><span class="p">)</span>
@@ -18394,7 +18428,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[287]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. 3 categorical variables using countplot: Weekday</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 categorical variables using countplot: Weekday</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_f</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;start_weekday_char&#39;</span><span class="p">)</span>
@@ -18443,7 +18478,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[288]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. 3 categorical variables using countplot: Month</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 categorical variables using countplot: Month</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_f</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;start_month_char&#39;</span><span class="p">)</span>
@@ -18490,7 +18526,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After checking time of day, weekdays and months, it is hard to tell any distinct trends between females and males. It needs to be investigated deeper and get more information.</p>
+<p><strong>After examining time of day, day of week, and month, it is difficult to identify any distinct temporal patterns that differ between male and female riders. This will require deeper investigation and possibly additional data.</strong></p>
 
 </div>
 </div>
@@ -18500,7 +18536,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="prompt input_prompt">In&nbsp;[205]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Station names are a little bit too long. Use station id instead for FacetGrid plots.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Station names are a little bit too long. Use station id instead for FacetGrid plots</span>
+
 <span class="n">df_top8</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;start_station_name&#39;</span><span class="p">)[</span><span class="s1">&#39;start_station_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
@@ -18543,10 +18580,11 @@ Name: start_station_id, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[307]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># (3) 2 Categorical variables and 1 numeric variable: too many groups here, </span>
-<span class="c1"># So separate them by using FacetGrid with Violin plot</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2 Categorical variables and 1 numeric variable: too many groups here, </span>
+<span class="c1"># So separate them by using FacetGrid with a Violin plot</span>
 
 <span class="c1"># Top 8 trips station by times (time of day, weekdays, months) in age distribution</span>
+
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_top8</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">times_chr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">,</span><span class="s1">&#39;start_station_id&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s1">&#39;quartile&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">);</span>
@@ -18614,7 +18652,8 @@ Name: start_station_id, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[309]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># (3) Top 8 trips station by times (period of day, weekdays, months) in log-transformed age distribution</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Top 8 trips station by times (period of day, weekdays, months) in log-transformed age distribution</span>
+
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_top8</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">times_chr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -18693,9 +18732,11 @@ Name: start_station_id, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[310]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># (4) 2 Categorical variables and 1 numeric variable: too many groups here, </span>
-<span class="c1"># so separate them by using FacetGrid with Boxplot</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2 Categorical variables and 1 numeric variable: too many groups here, </span>
+<span class="c1"># so separate them by using FacetGrid with a Boxplot</span>
+
 <span class="c1"># Top 8 trips station by times (time of day, weekdays, months) in duration of trips distribution</span>
+
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_top8</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">times_chr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -18759,14 +18800,22 @@ Name: start_station_id, dtype: int64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The trends are hard to see in the plots above because the values are tightly clustered.
+So, I applied a log transformation to the trip duration to spread the data out and make the patterns more visible.</strong></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[311]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cannot observe the trends based on the above plots because they all sequeeze together. </span>
-<span class="c1"># So, let&#39;s see log-transformed for duration of trips</span>
-<span class="c1"># (4) Top 8 trips station by times (period of day, weekdays, months) in log-transformed duration of trips distribution</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Top 8 trips station by times (period of day, weekdays, months) in log-transformed duration of trips distribution</span>
+
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_top8</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">times_chr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -18835,7 +18884,7 @@ Name: start_station_id, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After log transformed, the trips are longer at night, on Saturday and on Sunday, in December. I am interested in if user types impact the duration of trips too.</p>
+<p><strong>After the log transformation, trips appear to be longer at night, on Saturdays and Sundays, and in December. This makes me wonder whether user type (subscriber vs. customer) also affects trip duration. Since user type seems to play an important role in the previous plots, I will check whether it leads to differences in duration.</strong></p>
 
 </div>
 </div>
@@ -18845,9 +18894,9 @@ Name: start_station_id, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[314]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apparently, user types play an important role in the above plots. Let&#39;s see if it can make durations different.</span>
-<span class="c1"># 3 Categorical variables and 1 numeric variables: Use FacetGrid and Boxplot here.</span>
-<span class="c1"># (4) Top 8 trips station by times (time of day, weekdays, months) in log-transformed duration of trips distribution and in customers</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 Categorical variables and 1 numeric variables: Use FacetGrid and a Boxplot here.</span>
+<span class="c1"># Top 8 trips station by times (time of day, weekdays, months) in the log-transformed duration of trips distribution and in customers</span>
+
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
@@ -18931,7 +18980,7 @@ Name: start_station_id, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After separating subscribers from customers, the median of duration of trips in customers is between 1000 and 2000 seconds. The trips at night and in December are longer. It makes sense that December's trips are longer because of holiday season. However, the trips at night need to be investigated deeper.</p>
+<p><strong>After separating subscribers from customers, I found that the median trip duration for customers is between 1,000 and 2,000 seconds. Trips taken at night and in December are longer. The longer durations in December make sense due to the holiday season, but the longer trips at night require further investigation.</strong></p>
 
 </div>
 </div>
@@ -18941,8 +18990,9 @@ Name: start_station_id, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[304]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let&#39;s see subscribers!</span>
-<span class="c1"># (4) Top 8 trips station by times (period of day, weekdays, months) in log-transformed duration of trips distribution and in subscribers</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now, let’s look at the subscribers</span>
+<span class="c1"># (4) Top 8 trips station by times (period of day, weekdays, months) in the log-transformed duration of trips distribution and in subscribers</span>
+
 <span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
@@ -19027,7 +19077,7 @@ Name: start_station_id, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After separating customers from subscribers, the median of duration of trips falls between 650 and 1000 seconds. The duration of trips are longer at night and in December. It also make sense that December's trips are longer because of holiday season. However, the trips at night need to be investigated more.</p>
+<p><strong>After separating customers from subscribers, I found that the median trip duration for subscribers falls between 650 and 1,000 seconds. Similar to customers, subscriber trips tend to be longer at night and in December. The longer December trips are likely due to the holiday season, but the longer nighttime trips still need further investigation.</strong></p>
 
 </div>
 </div>
@@ -19035,8 +19085,24 @@ Name: start_station_id, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Features-strengthen-each-other-in-terms-of-looking-at-locations-and-times">Features strengthen each other in terms of looking at locations and times<a class="anchor-link" href="#Features-strengthen-each-other-in-terms-of-looking-at-locations-and-times">&#182;</a></h3><p>Separating user types, customers and subscribers, displays more information from location and time. Customers might be tourists who like to ride a bike during the weekend and in the summer. Also, the number of trips increases in the tourist attractions like Ferry building and Embarcadero (close to piers). On the other hand, subscribers might be commuters. The trips in subscribers increase during the weekdays and after launching, the number of trips gradually increases and then decreases when the weather becomes colder.</p>
-<h3 id="Interesting-or-surprising-interactions-between-features">Interesting or surprising interactions between features<a class="anchor-link" href="#Interesting-or-surprising-interactions-between-features">&#182;</a></h3><p>Based on the user types, the figures show us the significant trends. It also impacts the duration of trips. The median of duration of trips in customers (1000-2000 seconds) are longer than in subscribers (650 seconds). The trips in December are longer than other months both in customers and subscribers. I assumed because of holiday season.</p>
+<h3 id="Features-reinforce-each-other-when-analyzed-by-location-and-time">Features reinforce each other when analyzed by location and time<a class="anchor-link" href="#Features-reinforce-each-other-when-analyzed-by-location-and-time">&#182;</a></h3><p>Separating users into customers and subscribers reveals clearer patterns:</p>
+<ul>
+<li><p>Customers are likely tourists or occasional riders. They tend to ride more on weekends and in the summer, and their trips are more common at tourist-heavy locations such as the Ferry Building and Embarcadero (near the piers).</p>
+</li>
+<li><p>Subscribers appear to be commuters. Their trips are more frequent on weekdays, and after the program launched, their usage gradually increased and then declined as the weather became colder.</p>
+</li>
+</ul>
+<p>This shows that user type, time, and location together provide a much richer picture than any single feature alone.</p>
+<h3 id="Interesting-or-surprising-interactions-between-features">Interesting or surprising interactions between features<a class="anchor-link" href="#Interesting-or-surprising-interactions-between-features">&#182;</a></h3><p>When we separate the data by user type (customers vs. subscribers), the patterns become much clearer. User type not only affects when and where people ride, but also the duration of their trips:</p>
+<ul>
+<li><p>Customers tend to have longer trips, with median durations around 1,000–2,000 seconds.</p>
+</li>
+<li><p>Subscribers have shorter trips on average, with medians around 650 seconds, which is consistent with commute-style riding.</p>
+</li>
+<li><p>For both groups, trips in December are longer than in other months, likely due to the holiday season and more leisure-oriented riding.</p>
+</li>
+</ul>
+<p>So, user type + time of year together create a stronger signal than looking at time alone.</p>
 
 </div>
 </div>
@@ -19045,9 +19111,11 @@ Name: start_station_id, dtype: int64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='next'></a></p>
-<h2 id="V.-Proposal-for-the-next-step">V. Proposal for the next step<a class="anchor-link" href="#V.-Proposal-for-the-next-step">&#182;</a></h2><ol>
-<li>It is hard to tell the difference between females and males. It need to be investigated more with new features.  </li>
-<li>The duration of trips at night is longer than other time of day. It needs to be investigated deeper with new features.</li>
+<h2 id="V.-Proposal-for-Next-Steps">V. Proposal for Next Steps<a class="anchor-link" href="#V.-Proposal-for-Next-Steps">&#182;</a></h2><ol>
+<li><strong>Gender differences</strong>: The current features do not clearly explain the gap between male and female riders. Additional data (e.g., trip purpose, bike availability, station safety, time-of-day lighting, or survey data) would help investigate this further.</li>
+</ol>
+<ol>
+<li><strong>Longer nighttime trips</strong>: Trip durations are consistently longer at night than during other times of day. This pattern should be explored with more features, such as day type (weekday vs. weekend), user purpose, or even weather/holiday effects, to understand why riders stay longer on bikes at night.</li>
 </ol>
 
 </div>
