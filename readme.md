@@ -10,13 +10,13 @@ Therefore, all subsequent analysis is based on this **subsetted dataset** (top 8
 
 
 ## Summary of Findings
-**Univariate Exploration:**
+### **Univariate Exploration:**
 The number of trips shows a gradual decline as the weather becomes colder. Within a typical day, trip counts peak during the morning and late afternoon commute hours and drop at night. Ridership is also higher on weekdays than on weekends, which is consistent with work-related usage. As expected, there are more trips by subscribers than by casual customers, given the pricing structure of the system.
 
 In terms of rider demographics, male riders take roughly three times as many trips as female riders, which is a noticeable imbalance and worth further investigation. Most riders fall in the 30–40 year age range, and the typical trip duration is around 650 seconds (about 11 minutes).
 
 
-**Bivariate Exploration:**
+### **Bivariate Exploration:**
 The relationship between rider age and trip duration shows a **slightly negative correlation** — as age increases, trip duration tends to decrease, but the effect is small.
 
 After focusing on the top 8 start stations, an interesting temporal pattern appears: **about half of these stations peak in the morning** (likely commute-oriented trips), while **the other half peak in the afternoon**, which may reflect return commutes or leisure rides.
@@ -26,7 +26,7 @@ As seen in the univariate analysis, **weekdays consistently have more trips than
 Looking at trips over time, and excluding July (when the system had just launched), **trip counts increase from August through October**, then **decline in November and December**, which coincides with colder weather. This suggests that **bikeshare usage is weather-dependent**, but to confirm this hypothesis, external weather data (e.g., temperature, precipitation, wind) would be needed to formally test the relationship.
 
 
-**Multivariate Exploration:**
+### **Multivariate Exploration:**
 When trips are broken down by **user type (customer vs. subscriber)**, clearer behavioral patterns emerge. **Customers** (casual riders) tend to ride more on **weekends** and during the summer months, and their trips are more common around **tourist-heavy areas** such as the Ferry Building and the Embarcadero.
 
 **Subscribers**, in contrast, show a strong **weekday** pattern consistent with commuting. Their trip counts increase steadily after the system launch and then decline as the weather gets colder, matching the seasonal trend seen earlier.
