@@ -2,18 +2,45 @@
 
 
 ## Dataset
-The dataset, 2017-fordgobike-tripdata.csv, is downloaded from Ford GoBike and licensed by Ford GoBike. This dataset includes 519,700 trips with 15 features such as locations, time, and user attributes. There are start and end stations. I noticed that most trips happen on the same stations, so I subset the dataset by choosing the top 8 trip start stations with the most trips. Also, the program launched on June 28th, 2017, so I remove June's data because of the lack of insufficient data. Thus, the following analysis is performed by this subsetted dataset.
+The dataset, **2017-fordgobike-tripdata.csv**, was downloaded from Ford GoBike and is licensed by Ford GoBike. It contains **519,700** trip records with **15 features**, including trip times, station locations, and rider attributes. Each trip has both a start and an end station.
+During exploration, I noticed that a large portion of trips originated from a small set of popular stations. To focus the analysis and reduce noise, I filtered the data to include only the **top 8 start stations** with the highest trip counts.
+In addition, the Ford GoBike program officially launched on **June 28, 2017**, so the data for June represents only a partial month. To avoid bias from this incomplete period, I excluded June trips from the analysis.
+Therefore, all subsequent analysis is based on this **subsetted dataset** (top 8 start stations, July–December 2017).
+
 
 
 ## Summary of Findings
-1. Univariate exploration: the number of trips gradually decreases when the weather becomes colder. During the day, there are more trips in the morning and afternoon than the night. Also, there are more trips during the weekdays and fewer trips during the weekends. It makes sense that there are more subscribers than customers [pricing](https://www.fordgobike.com/pricing).
-For the gender groups, the number of trips in male riders is three times more than the number of female trips. It needs to be investigated more. Most riders are 30 to 40 years old, and the duration of trips is around 650 seconds.
+**Univariate Exploration:**
+The number of trips shows a gradual decline as the weather becomes colder. Within a typical day, trip counts peak during the morning and late afternoon commute hours and drop at night. Ridership is also higher on weekdays than on weekends, which is consistent with work-related usage. As expected, there are more trips by subscribers than by casual customers, given the pricing structure of the system.
 
-2. Bivariate exploration: there is a slightly negative correlation between age and duration of trips. After separation, the top 8 stations, half of the stations have the most trips in the morning, and another half of stations have the most trips in the afternoon. Weekdays have the most trips than weekends. In each month, besides July (the program just launched), the number of trips gradually increases from August to October, and it decreases in the winter (November and December). Biking is definitely correlated with the weather. It needs more weather forecast data to support the assumption.
-3. Multivariate exploration: separating user types, customers, and subscribers, gives more insights. Customers like to bike during the weekend and in the summer. Also, the number of trips increases in the tourist attractions like ferry building and Embarcadero. On the other hand, the subscribers' trips increase during the weekdays, and after launching, the number of trips gradually increases and decreases when the weather becomes colder. Moreover, customers ride longer than subscribers. Both of them have the most extended trips at night and in December. I  guess because of the holiday seasons, but not sure why night trips are longer. I still need more data to prove my point.
+In terms of rider demographics, male riders take roughly three times as many trips as female riders, which is a noticeable imbalance and worth further investigation. Most riders fall in the 30–40 year age range, and the typical trip duration is around 650 seconds (about 11 minutes).
+
+
+**Bivariate Exploration:**
+The relationship between rider age and trip duration shows a **slightly negative correlation** — as age increases, trip duration tends to decrease, but the effect is small.
+
+After focusing on the top 8 start stations, an interesting temporal pattern appears: **about half of these stations peak in the morning** (likely commute-oriented trips), while **the other half peak in the afternoon**, which may reflect return commutes or leisure rides.
+
+As seen in the univariate analysis, **weekdays consistently have more trips than weekends**, reinforcing the idea that much of the system’s usage is work-related.
+
+Looking at trips over time, and excluding July (when the system had just launched), **trip counts increase from August through October**, then **decline in November and December**, which coincides with colder weather. This suggests that **bikeshare usage is weather-dependent**, but to confirm this hypothesis, external weather data (e.g., temperature, precipitation, wind) would be needed to formally test the relationship.
+
+
+**Multivariate Exploration:**
+When trips are broken down by **user type (customer vs. subscriber)**, clearer behavioral patterns emerge. **Customers** (casual riders) tend to ride more on **weekends** and during the summer months, and their trips are more common around **tourist-heavy areas** such as the Ferry Building and the Embarcadero.
+
+**Subscribers**, in contrast, show a strong **weekday** pattern consistent with commuting. Their trip counts increase steadily after the system launch and then decline as the weather gets colder, matching the seasonal trend seen earlier.
+
+In terms of trip length, **customers generally ride longer than subscribers**, which aligns with recreation/leisure use versus routine commuting. Interestingly, both groups show **longer trip durations at night and in December**. This could be related to the holiday season (more leisure riding, fewer time constraints), but the nighttime pattern in particular would need additional data (e.g., weather, event schedules, or weekend/weekday split at night) to confirm the cause.
+
 
 ## Key Insights for Presentation  
-Most trips are located in San Francisco and connect to public transportations, including Caltrain, Bart, and Ferry. User types play a crucial factor in the number of trips in each location and time group. For customers, there are more trips on the weekends and in August. They also have more extended trips. On the other hand, there are more trips during the weekends for subscribers, and climate change influences the number of trips. Thus, collecting more information individually from these two user types is essential for future analysis.
+Most trips are concentrated in **San Francisco** and are well integrated with **public transit hubs** such as Caltrain, BART, and the Ferry terminals. This suggests that the bikeshare system is being used as a **first-/last-mile connector.**
+
+**User type** is a key factor in explaining when and where trips occur. **Customers** ride more on **weekends** and in **August*8, and their trips tend to be **longer**, consistent with leisure or tourist behavior. **Subscribers**, on the other hand, ride more on **weekdays**, showing a commute-oriented pattern, and their trip counts decline as the weather becomes colder (i.e., they are sensitive to seasonal/climatic conditions rather than “climate change”).
+
+Because these two groups behave differently across **time, location, and trip duration**, future analyses should model **customers and subscribers separately** and, if possible, enrich the dataset with external variables (e.g., weather, events, transit schedules) to improve explanations and predictions.
+
 
 ## Review
 * [Udacity Review 1](https://github.com/jemc36/Udacity-DAND-DataVisualization-Ford-GoBike/blob/master/Udacity%20Reviews%201.pdf)  
