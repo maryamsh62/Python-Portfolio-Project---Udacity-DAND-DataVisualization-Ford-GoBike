@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13069,45 +13068,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13233,26 +13193,6 @@ a.anchor-link {
 </head>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-<style type="text/css">
-//div.output_wrapper {
-//  margin-top: 0px;
-//}
-.input_hidden {
-  display: none;
-//  margin-top: 5px;
-}
-</style>
-
-<script>
-$(document).ready(function(){
-  $(".output_wrapper").click(function(){
-      $(this).prev('.input_hidden').slideToggle();
-  });
-})
-</script>
-
 <body>
 
 
@@ -13269,8 +13209,8 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">&#182;</a></h2><p>In this analysis, I would like to figure that when and where are most trips taken, and what kind of characteristics are in these locations and time periods. The characteristics include rider's attributes (sex, age, and user_type) and duration of trips.</p>
-<h2 id="Dataset-Overview">Dataset Overview<a class="anchor-link" href="#Dataset-Overview">&#182;</a></h2><p>This dataset includes 519,700 trips with 15 features such as locations, time, and user attributes. The dataset is subsetted by choosing top 8 trips start stations with the most trips due to the same stations with same amount of trips in the end stations. Also, June's data is removed because of lack of insufficient data in that month.</p>
+<h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">&#182;</a></h2><p>In this analysis, I aim to determine <strong>when</strong> and <strong>where</strong> most trips are taken and to understand the rider characteristics associated with those times and locations. The characteristics I focus on include <strong>rider attributes</strong> (sex, age, and user_type) and <strong>trip duration</strong>.</p>
+<h2 id="Dataset-Overview">Dataset Overview<a class="anchor-link" href="#Dataset-Overview">&#182;</a></h2><p>This dataset contains <strong>519,700 trips</strong> with <strong>15 features</strong> covering locations, time, and rider attributes. For this analysis, I limited the data to the <strong>top 8 start stations</strong> with the highest number of trips, since the same stations also appear frequently as end stations. I also removed <strong>June</strong> from the analysis because the program launched on June 28, so that month contains only a few days of data and is not comparable to the other months.</p>
 
 </div>
 </div>
@@ -13278,13 +13218,12 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-top-8-stations-with-the-most-trips">The top 8 stations with the most trips<a class="anchor-link" href="#The-top-8-stations-with-the-most-trips">&#182;</a></h2><p>All of the start stations with the most trips are in San Francisco and connect to public transportations such as Caltrain, Bart and Ferry.</p>
+<h2 id="Top-8-Stations-with-the-Most-Trips">Top 8 Stations with the Most Trips<a class="anchor-link" href="#Top-8-Stations-with-the-Most-Trips">&#182;</a></h2><p>All of the start stations with the highest number of trips are located in San Francisco and are connected to major public transportation systems such as Caltrain, BART, and the Ferry.</p>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
@@ -13301,8 +13240,6 @@ $(document).ready(function(){
 
     </div>
 </div>
-</div>
-
 </div>
 
 <div class="output_wrapper">
@@ -13331,17 +13268,19 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-time-with-most-trips">The time with most trips<a class="anchor-link" href="#The-time-with-most-trips">&#182;</a></h2><ul>
-<li>There are the most trips in the morning.    </li>
-<li>There are the most trips during the weekdays than the weekends.   </li>
-<li>The number of trips gradually increases from July to October and decreases in November and December.</li>
+<h2 id="Times-with-the-Most-Trips">Times with the Most Trips<a class="anchor-link" href="#Times-with-the-Most-Trips">&#182;</a></h2><ul>
+<li><p>Most trips occur in the morning.</p>
+</li>
+<li><p>There are more trips on weekdays than on weekends.</p>
+</li>
+<li><p>Trip counts increase from July through October, then decline in November and December.</p>
+</li>
 </ul>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
@@ -13363,8 +13302,6 @@ $(document).ready(function(){
 
     </div>
 </div>
-</div>
-
 </div>
 
 <div class="output_wrapper">
@@ -13393,13 +13330,18 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-top-8-stations-with-the-most-trips-by-weekdays-in-each-user-type">The top 8 stations with the most trips by weekdays in each user type<a class="anchor-link" href="#The-top-8-stations-with-the-most-trips-by-weekdays-in-each-user-type">&#182;</a></h2><p>After separating user types, for customers, there are 6 out of 8 stations with the most trips in the weekend. Most of trips happen at Ferry Building and Embarcadero that are very popular tourist attractions. On the other hand, for subscribers, most of trips happen during the weekdays. Subscribers are more likely commuters.</p>
+<h2 id="Top-8-Stations-by-Weekday/Weekend-and-User-Type">Top 8 Stations by Weekday/Weekend and User Type<a class="anchor-link" href="#Top-8-Stations-by-Weekday/Weekend-and-User-Type">&#182;</a></h2><p>After separating by user type:</p>
+<ul>
+<li><p>Customers: At 6 out of the 8 stations, customers take more trips on weekends. Most of these trips occur at the Ferry Building and Embarcadero, which are popular tourist locations.</p>
+</li>
+<li><p>Subscribers: Most subscriber trips occur on weekdays, suggesting they are more likely commuters.</p>
+</li>
+</ul>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
@@ -13422,8 +13364,6 @@ $(document).ready(function(){
 
     </div>
 </div>
-</div>
-
 </div>
 
 <div class="output_wrapper">
@@ -13452,13 +13392,17 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-top-8-stations-with-the-most-trips-by-months-in-each-user-type">The top 8 stations with the most trips by months in each user type<a class="anchor-link" href="#The-top-8-stations-with-the-most-trips-by-months-in-each-user-type">&#182;</a></h2><p>The distributions in each month support that customers might include tourists because the most trips happen in August at Ferry Building and Embarcadero. For subscribers, the numbers of trips gradually increase from July to October and decrease in November and December according to the climate changes.</p>
+<h2 id="Top-8-Stations-by-Month-and-User-Type">Top 8 Stations by Month and User Type<a class="anchor-link" href="#Top-8-Stations-by-Month-and-User-Type">&#182;</a></h2><ul>
+<li><p>For customers, the monthly distributions suggest many are tourists, since the highest trip counts occur in August at the Ferry Building and Embarcadero.</p>
+</li>
+<li><p>For subscribers, trip counts increase from July to October and then decrease in November and December, likely reflecting seasonal/climate effects on commuting.</p>
+</li>
+</ul>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
@@ -13481,8 +13425,6 @@ $(document).ready(function(){
 
     </div>
 </div>
-</div>
-
 </div>
 
 <div class="output_wrapper">
@@ -13511,13 +13453,20 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-duration-of-customers'-trips-by-time-groups-in-top-8-stations">The duration of customers' trips by time groups in top 8 stations<a class="anchor-link" href="#The-duration-of-customers'-trips-by-time-groups-in-top-8-stations">&#182;</a></h2><p>In customers, the duration of trips is longer than subscribers'. The medians fall between 1,000 and 2,000 seconds. The duration of trips at night is longer than in the morning and afternoon which needs to be investigated deeper. The duration of trips in December is longer than in other months. It probably because of holiday seasons such Christmas and New Year.</p>
+<h2 id="Duration-of-Customers&#8217;-Trips-by-Time-Groups-(Top-8-Stations)">Duration of Customers&#8217; Trips by Time Groups (Top 8 Stations)<a class="anchor-link" href="#Duration-of-Customers&#8217;-Trips-by-Time-Groups-(Top-8-Stations)">&#182;</a></h2><p>For customers, trip durations are generally longer than those of subscribers:</p>
+<ul>
+<li><p>The median duration falls between 1,000 and 2,000 seconds.</p>
+</li>
+<li><p>Trips taken at night are longer than those in the morning or afternoon, which requires further investigation.</p>
+</li>
+<li><p>Trips in December are also longer than in other months, likely due to the holiday season (e.g., Christmas and New Year).</p>
+</li>
+</ul>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
@@ -13536,8 +13485,6 @@ $(document).ready(function(){
 
     </div>
 </div>
-</div>
-
 </div>
 
 <div class="output_wrapper">
@@ -13594,13 +13541,20 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-durations-of-subscribers'-trips-by-time-groups-in-top-8-stations">The durations of subscribers' trips by time groups in top 8 stations<a class="anchor-link" href="#The-durations-of-subscribers'-trips-by-time-groups-in-top-8-stations">&#182;</a></h2><p>For subscribers, the duration of trips is shorter than customers'. The medians of the durations fall around 650 seconds. The trip at night is also longer than the other time of day which needs to be investigated. The trips in December are the longest, which might imply the holiday season's coming. It also needs more data to support.</p>
+<h2 id="Duration-of-Subscribers&#8217;-Trips-by-Time-Groups-(Top-8-Stations)">Duration of Subscribers&#8217; Trips by Time Groups (Top 8 Stations)<a class="anchor-link" href="#Duration-of-Subscribers&#8217;-Trips-by-Time-Groups-(Top-8-Stations)">&#182;</a></h2><p>For subscribers, trip durations are shorter than those of customers:</p>
+<ul>
+<li><p>The median duration is around 650 seconds.</p>
+</li>
+<li><p>Trips taken at night are longer than those at other times of day, which should be investigated further.</p>
+</li>
+<li><p>Trips in December are the longest, possibly due to the holiday season, but this pattern would need additional data to confirm.</p>
+</li>
+</ul>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
@@ -13617,8 +13571,6 @@ $(document).ready(function(){
 
     </div>
 </div>
-</div>
-
 </div>
 
 <div class="output_wrapper">
@@ -13682,7 +13634,7 @@ terminal or command line, use the following expression:</p>
 <blockquote><p><code>jupyter nbconvert &lt;file_name&gt;.ipynb --to slides --post serve --template output_toggle</code></p>
 </blockquote>
 <p>This should open a tab in your web browser where you can scroll through your
-presentation. Sub-slides can be accessed by pressing 'down' when viewing its parent
+presentation. Sub-slides can be accessed by pressing 'down' when viewing their parent 
 slide. Make sure you remove all of the quote-formatted guide notes like this one
 before you finish your presentation!</p>
 </blockquote>
@@ -13694,7 +13646,7 @@ before you finish your presentation!</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>All of the most trips happen at the stations in San Francisco. User types play an important role here to impact the number of trips in each time groups. Thus, getting more user types' attributes will help understand the characteristics of trips more and attract higher traffics for this program.</p>
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>Most of the highest trip counts occur at stations in San Francisco. User type plays an important role in how trips are distributed across time groups. Therefore, collecting more detailed user attributes would help us better understand trip behavior and could inform strategies to attract higher ridership for the program.</p>
 
 </div>
 </div>
